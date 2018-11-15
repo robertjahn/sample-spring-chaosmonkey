@@ -2,7 +2,7 @@ spring:
   application:
     name: gatling-service
   datasource:
-    url: jdbc:postgresql://192.168.99.100:5432/gatling
+    url: jdbc:postgresql://localhost:5432/gatling
     username: gatling
     password: gatling123
   jpa:

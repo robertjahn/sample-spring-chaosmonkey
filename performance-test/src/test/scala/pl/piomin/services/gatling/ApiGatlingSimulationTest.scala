@@ -11,6 +11,7 @@ import scala.util.Random
 
 class ApiGatlingSimulationTest extends Simulation {
 
+/*
   val scn = scenario("AddAndFindOrders").repeat(500, "n") {
         exec(
           http("AddOrder-API")
@@ -28,5 +29,13 @@ class ApiGatlingSimulationTest extends Simulation {
   }
   
   setUp(scn.inject(atOnceUsers(20))).maxDuration(FiniteDuration.apply(10, "minutes"))
-  
+  */
+  val scn = scenario("Customer-API").repeat(500, "n") {
+    exec(
+          http("GetCustomer")
+            .get("http://localhost:8093/customers/1")
+            .check(status.is(200))
+        )
+  }
+  setUp(scn.inject(atOnceUsers(20))).maxDuration(FiniteDuration.apply(1, "minutes"))
 }

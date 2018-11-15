@@ -5,6 +5,10 @@ dependencies {
     testCompile group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '2.3.0'
 }
 
+repositories {
+    mavenCentral()
+}
+
 task loadTest(type: JavaExec) {
    dependsOn testClasses
    description = "Load Test With Gatling"
